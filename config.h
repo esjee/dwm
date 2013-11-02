@@ -1,3 +1,5 @@
+#include "mpdcontrol.c"
+
 /* appearance */
 static const char font[]            = "terminusmodx 8";
 
@@ -68,9 +70,6 @@ static const Layout layouts[] = {
 	"env GTK2_RC_FILES=/home/plague/.static/firefox-gtkrc /usr/bin/firefox"
 #define VOLUME_UP "/usr/bin/amixer set Master 3%+"
 #define VOLUME_DOWN "/usr/bin/amixer set Master 3%-"
-#define MUSIC_TOGGLE "/usr/bin/mpc -q toggle"
-#define MUSIC_NEXT "/usr/bin/mpc -q next"
-#define MUSIC_PREV "/usr/bin/mpc -q prev"
 
 static const char *dmenucmd[] =
 	{"dmenu_run", "-b", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor,
@@ -122,11 +121,11 @@ static Key keys[] = {
 	{ MODKEY,XK_s,spawn,SHCMD(FIREFOX_GTKFIX) },
 
 	/* volume, music */
-	{ MODKEY,XK_equal,spawn,SHCMD(VOLUME_UP) },
-	{ MODKEY,XK_minus,spawn,SHCMD(VOLUME_DOWN) },
-	{ MODKEY,XK_p,spawn,SHCMD(MUSIC_TOGGLE) },
-	{ MODKEY,XK_bracketright,spawn,SHCMD(MUSIC_NEXT) },
-	{ MODKEY,XK_bracketleft,spawn,SHCMD(MUSIC_PREV) }
+	{ MODKEY, XK_equal,spawn, SHCMD(VOLUME_UP) },
+	{ MODKEY, XK_minus,spawn, SHCMD(VOLUME_DOWN) },
+	{ MODKEY, XK_bracketright, mpdchange, {.i = +1} },
+	{ MODKEY, XK_bracketleft, mpdchange, {.i = -1} },
+	{ MODKEY, XK_p, mpdcontrol, {0} }
 
 
 	/* unused keybindings kept here for safekeeping */
