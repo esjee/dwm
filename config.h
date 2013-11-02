@@ -2,8 +2,8 @@
 static const char font[]            = "terminusmodx 8";
 
 /* normal */
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
+static const char normbordercolor[] = "#000000";
+static const char normbgcolor[]     = "#000000";
 static const char normfgcolor[]     = "#cccaca";
 
 /* selected */
@@ -43,7 +43,7 @@ static const float mfact      = 0.64;
 /* number of clients in master area */
 static const int nmaster      = 1;
 /* True means respect size hints in tiled resizals */
-static const Bool resizehints = True;
+static const Bool resizehints = False;
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -87,8 +87,6 @@ static Key keys[] = {
 	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
 	{ MODKEY,		XK_i,		incnmaster,	{.i = +1 } },
 	{ MODKEY,		XK_d,		incnmaster,	{.i = -1 } },
-	{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
-	{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
 	{ MODKEY|ShiftMask,	XK_j,		pushdown,	{0} },
 	{ MODKEY|ShiftMask,	XK_k,		pushup,		{0} },
 	{ MODKEY,		XK_f,		zoom,		{0} },
@@ -129,6 +127,12 @@ static Key keys[] = {
 	{ MODKEY,XK_p,spawn,SHCMD(MUSIC_TOGGLE) },
 	{ MODKEY,XK_bracketright,spawn,SHCMD(MUSIC_NEXT) },
 	{ MODKEY,XK_bracketleft,spawn,SHCMD(MUSIC_PREV) }
+
+
+	/* unused keybindings kept here for safekeeping */
+	/* resizing windows */
+	//{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
+	//{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
 
 	/* modifier                     key        function        argument */
 };
