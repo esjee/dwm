@@ -1,0 +1,16 @@
+# Specific for this project
+dwm
+
+# Editor files
+*.swp
+*.swo
+*.clang_complete
+*.tags
+*~
+
+# Generated files
+*.o
+*.a
+
+# Misc
+*.patch
