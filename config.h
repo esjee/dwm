@@ -65,15 +65,15 @@ static const Layout layouts[] = {
 
 /* commands */
 #define FIREFOX_GTKFIX ""\
-	"env GTK2_RC_FILES=/home/plague/.static/firefox-gtkrc firefox"
-#define VOLUME_UP "amixer set Master 3%+"
-#define VOLUME_DOWN "amixer set Master 3%-"
-#define MUSIC_TOGGLE "mpc -q toggle"
-#define MUSIC_NEXT "mpc -q next"
-#define MUSIC_PREV "mpc -q prev"
+	"env GTK2_RC_FILES=/home/plague/.static/firefox-gtkrc /usr/bin/firefox"
+#define VOLUME_UP "/usr/bin/amixer set Master 3%+"
+#define VOLUME_DOWN "/usr/bin/amixer set Master 3%-"
+#define MUSIC_TOGGLE "/usr/bin/mpc -q toggle"
+#define MUSIC_NEXT "/usr/bin/mpc -q next"
+#define MUSIC_PREV "/usr/bin/mpc -q prev"
 
 static const char *dmenucmd[] =
-	{"dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor,
+	{"dmenu_run", "-b", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor,
 		"-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "/usr/bin/urxvtc", NULL };
 
