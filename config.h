@@ -33,7 +33,7 @@ static const char *tags[] =
 
 static const Rule rules[] = {
 /* class instance title tags mask isfloating monitor */
-{ "Gimp",	NULL,	NULL,	1 << 8,	True,	-1 },
+{ "Gimp",	NULL,	NULL,	1 << 6,	True,	-1 },
 //{ "Firefox",  NULL,	NULL,	1 << 8,	False,	-1 },
 };
 
