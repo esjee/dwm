@@ -231,7 +231,7 @@ static void setclientstate(Client *c, long state);
 static void setfocus(Client *c);
 static void setfullscreen(Client *c, Bool fullscreen);
 static void setlayout(const Arg *arg);
-static void setmfact(const Arg *arg);
+//static void setmfact(const Arg *arg);
 static void setup(void);
 static void showhide(Client *c);
 static void sigchld(int unused);
@@ -1601,18 +1601,18 @@ setlayout(const Arg *arg) {
 }
 
 /* arg > 1.0 will set mfact absolutly */
-void
-setmfact(const Arg *arg) {
-	float f;
-
-	if(!arg || !selmon->lt[selmon->sellt]->arrange)
-		return;
-	f = arg->f < 1.0 ? arg->f + selmon->mfact : arg->f - 1.0;
-	if(f < 0.1 || f > 0.9)
-		return;
-	selmon->mfact = f;
-	arrange(selmon);
-}
+//void
+//setmfact(const Arg *arg) {
+//	float f;
+//
+//	if(!arg || !selmon->lt[selmon->sellt]->arrange)
+//		return;
+//	f = arg->f < 1.0 ? arg->f + selmon->mfact : arg->f - 1.0;
+//	if(f < 0.1 || f > 0.9)
+//		return;
+//	selmon->mfact = f;
+//	arrange(selmon);
+//}
 
 void
 setup(void) {
