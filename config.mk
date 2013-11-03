@@ -28,7 +28,7 @@ LIBS =  -lc -L${X11LIB} -lX11 ${XINERAMALIBS} ${PANGOLIB} ${MPDCLIENTLIB}
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 #CFLAGS = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-CFLAGS += -std=c99 -pedantic -Wall ${INCS} ${CPPFLAGS}
+CFLAGS += -O3 -std=c99 -pedantic -Wall -Wno-deprecated-declarations ${INCS} ${CPPFLAGS}
 #LDFLAGS = -g ${LIBS}
 LDFLAGS += ${LIBS}
 
