@@ -70,6 +70,9 @@ static const Layout layouts[] = {
 	"env GTK2_RC_FILES=/home/plague/.static/firefox-gtkrc /usr/bin/firefox"
 #define VOLUME_UP "/usr/bin/amixer set Master 3%+"
 #define VOLUME_DOWN "/usr/bin/amixer set Master 3%-"
+#define SHUTDOWN "sudo /sbin/poweroff"
+#define SLEEP "sudo /usr/sbin/pm-suspend"
+#define REBOOT "sudo /sbin/reboot"
 
 static const char *dmenucmd[] =
 	{"dmenu_run", "-b", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor,
@@ -119,6 +122,11 @@ static Key keys[] = {
 
 	/* applications */
 	{ MODKEY,XK_s,spawn,SHCMD(FIREFOX_GTKFIX) },
+
+	/* system */
+	{ MODKEY|ShiftMask|ControlMask, XK_F12, spawn, SHCMD(SHUTDOWN) },
+	{ MODKEY|ShiftMask|ControlMask, XK_F11, spawn, SHCMD(REBOOT) },
+	{ MODKEY|ShiftMask|ControlMask, XK_F10, spawn, SHCMD(SLEEP) },
 
 	/* volume, music */
 	{ MODKEY, XK_equal,spawn, SHCMD(VOLUME_UP) },
