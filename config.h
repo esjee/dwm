@@ -74,10 +74,19 @@ static const Layout layouts[] = {
 #define SLEEP "sudo /usr/sbin/pm-suspend"
 #define REBOOT "sudo /sbin/reboot"
 
-static const char *dmenucmd[] =
-	{"dmenu_run", "-b", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor,
-		"-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "/usr/bin/urxvtc", NULL };
+static const char *dmenucmd[] = {
+	"/usr/bin/dmenu_run",
+	"-f",
+	"-b",
+	"-fn", font,
+	"-nb", normbgcolor,
+	"-nf", normfgcolor,
+	"-sb", selbgcolor,
+	"-sf", selfgcolor,
+	NULL };
+static const char *termcmd[]  = {
+	"/usr/bin/urxvtc",
+	NULL };
 
 static Key keys[] = {
 	/* modifiers	keys	functions	argument */
