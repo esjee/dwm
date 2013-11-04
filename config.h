@@ -35,7 +35,7 @@ static const char *tags[] =
 
 static const Rule rules[] = {
 /* class instance title tags mask isfloating monitor */
-{ "Gimp",	NULL,	NULL,	1 << 6,	True,	-1 },
+{ "Gimp",	NULL,	NULL,	1 << 5,	True,	-1 },
 //{ "Firefox",  NULL,	NULL,	1 << 8,	False,	-1 },
 };
 
@@ -90,10 +90,7 @@ static const char *termcmd[]  = {
 
 static Key keys[] = {
 	/* modifiers	keys	functions	argument */
-	{ MODKEY,		XK_r,		spawn,		{.v = dmenucmd } },
-	{ MODKEY,		XK_Return,	spawn,		{.v = termcmd } },
 	/* window manipulation */
-	{ MODKEY,		XK_b,		togglebar,	{0} },
 	{ MODKEY,		XK_j,		focusstack,	{.i = +1 } },
 	{ MODKEY,		XK_k,		focusstack,	{.i = -1 } },
 	{ MODKEY,		XK_i,		incnmaster,	{.i = +1 } },
@@ -126,16 +123,17 @@ static Key keys[] = {
 	TAGKEYS(XK_8,7)
 	TAGKEYS(XK_9,8)
 
-	/* dwm commands */
-	{ MODKEY|ShiftMask,XK_q,quit,{0} },
-
 	/* applications */
-	{ MODKEY,XK_s,spawn,SHCMD(FIREFOX_GTKFIX) },
+	{ MODKEY,		XK_r,		spawn,		{.v = dmenucmd } },
+	{ MODKEY,		XK_Return,	spawn,		{.v = termcmd } },
+	{ MODKEY,		XK_s,		spawn,		SHCMD(FIREFOX_GTKFIX) },
 
 	/* system */
-	{ MODKEY|ShiftMask|ControlMask, XK_F12, spawn, SHCMD(SHUTDOWN) },
-	{ MODKEY|ShiftMask|ControlMask, XK_F11, spawn, SHCMD(REBOOT) },
-	{ MODKEY|ShiftMask|ControlMask, XK_F10, spawn, SHCMD(SLEEP) },
+	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
+	{ MODKEY|ShiftMask|ControlMask,	XK_F11,		spawn,		 SHCMD(REBOOT) },
+	{ MODKEY|ShiftMask|ControlMask,	XK_F10,		spawn,		 SHCMD(SLEEP) },
+	{ MODKEY|ShiftMask,		XK_q,		quit,		{0} },	/* kill dwm */
+	{ MODKEY,			XK_b,		togglebar,	{0} },
 
 	/* volume, music */
 	{ MODKEY, XK_equal,spawn, SHCMD(VOLUME_UP) },
@@ -144,13 +142,12 @@ static Key keys[] = {
 	{ MODKEY, XK_bracketleft, mpdchange, {.i = -1} },
 	{ MODKEY, XK_p, mpdcontrol, {0} }
 
+	/* modifier                     key        function        argument */
 
 	/* unused keybindings kept here for safekeeping */
 	/* resizing windows */
 	//{ MODKEY,		XK_h,		setmfact,	{.f = -0.05} },
 	//{ MODKEY,		XK_l,		setmfact,	{.f = +0.05} },
-
-	/* modifier                     key        function        argument */
 };
 
 /* button definitions */
