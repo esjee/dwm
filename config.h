@@ -68,8 +68,6 @@ static const Layout layouts[] = {
 /* commands */
 #define FIREFOX_GTKFIX ""\
 	"env GTK2_RC_FILES=/home/plague/.static/firefox-gtkrc /usr/bin/firefox"
-#define VOLUME_UP "/usr/bin/amixer set Master 3%+"
-#define VOLUME_DOWN "/usr/bin/amixer set Master 3%-"
 #define SHUTDOWN "sudo /sbin/poweroff"
 #define SLEEP "sudo /usr/sbin/pm-suspend"
 #define REBOOT "sudo /sbin/reboot"
@@ -86,6 +84,27 @@ static const char *dmenucmd[] = {
 	NULL };
 static const char *termcmd[]  = {
 	"/usr/bin/urxvtc",
+	NULL };
+static const char *volupcmd[] = {
+	"/usr/bin/amixer",
+	"set",
+	"Master",
+	"3%+",
+	NULL };
+static const char *voldowncmd[] = {
+	"/usr/bin/amixer",
+	"set",
+	"Master",
+	"3%-",
+	NULL };
+static const char *scrotcmd[] = {
+	"/usr/bin/scrot",
+	"/home/plague/screenshot.png",
+	NULL };
+static const char *scrotselectcmd[] = {
+	"/usr/bin/scrot",
+	"-s",
+	"/home/plague/screenshot_$wx$h.png",
 	NULL };
 
 static Key keys[] = {
@@ -123,10 +142,12 @@ static Key keys[] = {
 	TAGKEYS(XK_8,7)
 	TAGKEYS(XK_9,8)
 
-	/* applications */
+	/* applications/hotkeys */
 	{ MODKEY,		XK_r,		spawn,		{.v = dmenucmd } },
 	{ MODKEY,		XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY,		XK_s,		spawn,		SHCMD(FIREFOX_GTKFIX) },
+	{ MODKEY,		XK_Print, spawn,		{.v = scrotcmd } },
+	{ MODKEY|ShiftMask,	XK_Print, spawn,		{.v = scrotselectcmd } },
 
 	/* system */
 	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
@@ -136,11 +157,11 @@ static Key keys[] = {
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 
 	/* volume, music */
-	{ MODKEY, XK_equal,spawn, SHCMD(VOLUME_UP) },
-	{ MODKEY, XK_minus,spawn, SHCMD(VOLUME_DOWN) },
-	{ MODKEY, XK_bracketright, mpdchange, {.i = +1} },
-	{ MODKEY, XK_bracketleft, mpdchange, {.i = -1} },
-	{ MODKEY, XK_p, mpdcontrol, {0} }
+	{ MODKEY,			XK_equal,	spawn,		{.v = volupcmd } },
+	{ MODKEY,			XK_minus,	spawn,		{.v = voldowncmd } },
+	{ MODKEY,			XK_bracketright,mpdchange,	{.i = +1} },
+	{ MODKEY,			XK_bracketleft,	mpdchange,	{.i = -1} },
+	{ MODKEY,			XK_p,		mpdcontrol,	{0} }
 
 	/* modifier                     key        function        argument */
 
