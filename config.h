@@ -98,8 +98,10 @@ static const char *voldowncmd[] = {
 	"3%-",
 	NULL };
 static const char *scrotcmd[] = {
-	"/usr/bin/scrot",
-	"/home/plague/screenshot.png",
+	"scrot",
+	"screenshot.png",
+	"--quality", "100",
+	"-e", "'mv $f /home/plague/'",
 	NULL };
 static const char *scrotselectcmd[] = {
 	"/usr/bin/scrot",
@@ -146,8 +148,8 @@ static Key keys[] = {
 	{ MODKEY,		XK_r,		spawn,		{.v = dmenucmd } },
 	{ MODKEY,		XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY,		XK_s,		spawn,		SHCMD(FIREFOX_GTKFIX) },
-	{ MODKEY,		XK_Print, spawn,		{.v = scrotcmd } },
-	{ MODKEY|ShiftMask,	XK_Print, spawn,		{.v = scrotselectcmd } },
+	{ MODKEY,		XK_Print,	spawn,		{.v = scrotcmd } },
+	{ MODKEY|ShiftMask,	XK_Print,	spawn,		{.v = scrotselectcmd } },
 
 	/* system */
 	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
