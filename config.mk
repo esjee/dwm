@@ -25,6 +25,10 @@ MPDCLIENTLIB = -lmpdclient
 INCS = -I.  -I${X11INC} ${PANGOINC}
 LIBS =  -lc -L${X11LIB} -lX11 ${XINERAMALIBS} ${PANGOLIB} ${MPDCLIENTLIB}
 
+# includes and libs
+#INCS = -I.  -I${X11INC}
+#LIBS =  -lc -L${X11LIB} -lX11 ${XINERAMALIBS}
+
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 #CFLAGS = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
