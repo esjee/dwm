@@ -1,12 +1,6 @@
-# dwm version
 VERSION = 6.0
-
-# Customize below to fit your system
-
-# paths
 PREFIX = /usr/local
 MANPREFIX = ${PREFIX}/share/man
-
 X11INC = /usr/include/X11
 X11LIB = /usr/lib
 
@@ -25,20 +19,14 @@ MPDCLIENTLIB = -lmpdclient
 INCS = -I.  -I${X11INC} ${PANGOINC}
 LIBS =  -lc -L${X11LIB} -lX11 ${XINERAMALIBS} ${PANGOLIB} ${MPDCLIENTLIB}
 
-# includes and libs
-#INCS = -I.  -I${X11INC}
-#LIBS =  -lc -L${X11LIB} -lX11 ${XINERAMALIBS}
-
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
-#CFLAGS = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
 CFLAGS += -O3 -std=c99 -pedantic -Wall -Wno-deprecated-declarations ${INCS} ${CPPFLAGS}
-#LDFLAGS = -g ${LIBS}
 LDFLAGS += ${LIBS}
 
-# Solaris
-#CFLAGS = -fast ${INCS} -DVERSION=\"${VERSION}\"
-#LDFLAGS = ${LIBS}
+# debug flags
+#CFLAGS = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
+#LDFLAGS = -g ${LIBS}
 
 # compiler and linker
 CC = cc
