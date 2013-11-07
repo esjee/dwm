@@ -1,3 +1,9 @@
+This is dwm with a bunch of patches from various sources.
+The master branch is dwm-6.0 unmodified.
+The esjee branch is patched dwm.
+
+Original readme:
+
 dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
