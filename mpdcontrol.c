@@ -8,6 +8,9 @@
 #define MPDHOST "/home/plague/.mpd/socket"
 #define MPDPORT 0
 
+#define MPD_ARGPAUSE 1
+#define MPD_ARGSTOP  2
+
 struct mpd_connection *get_conn(){
 	struct mpd_connection *conn;
 	conn = mpd_connection_new(MPDHOST, MPDPORT, 1000);
@@ -46,7 +49,7 @@ char *get_regerror(int errcode, regex_t *compiled){
 	return buffer;
 }
 
-void mpdcontrol(){
+void mpdcontrol(const Arg *pause_or_stop){
 	struct mpd_connection *conn;
 	struct mpd_status *status;
 	struct mpd_song *song;
@@ -112,12 +115,18 @@ void mpdcontrol(){
 				//this means that mpd is playing a file
 				//outside the music_dir,
 				//but on disk, so we can safely pause
-				mpd_run_toggle_pause(conn);
+				if (pause_or_stop->i == MPD_ARGPAUSE)
+					mpd_run_toggle_pause(conn);
+				else
+					mpd_run_stop(conn);
 			} else{
 				mpd_run_stop(conn);
 			}
 		} else if(matchcode == REG_NOMATCH){
-			mpd_run_toggle_pause(conn);
+			if (pause_or_stop->i == MPD_ARGPAUSE)
+				mpd_run_toggle_pause(conn);
+			else
+				mpd_run_stop(conn);
 		} else{
 			char *err = get_regerror(matchcode, &expr);
 			fprintf(stderr, "Error while matching regexp: %s\n",

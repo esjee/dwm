@@ -144,9 +144,10 @@ static Key keys[] = {
 	/* volume, music */
 	{ MODKEY,			XK_equal,	spawn,		{.v = volupcmd } },
 	{ MODKEY,			XK_minus,	spawn,		{.v = voldowncmd } },
-	{ MODKEY,			XK_bracketright,mpdchange,	{.i = +1} },
-	{ MODKEY,			XK_bracketleft,	mpdchange,	{.i = -1} },
-	{ MODKEY,			XK_p,		mpdcontrol,	{0} }
+	{ MODKEY,			XK_bracketright,mpdchange,	{.i = +1} }, /* next song */
+	{ MODKEY,			XK_bracketleft,	mpdchange,	{.i = -1} }, /* prev song */
+	{ MODKEY,			XK_p,		mpdcontrol,	{.i = MPD_ARGPAUSE} }, /* pause */
+	{ MODKEY|ShiftMask,		XK_p,		mpdcontrol,	{.i = MPD_ARGSTOP} }, /* stop */
 
 	/* modifier                     key        function        argument */
 
