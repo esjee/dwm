@@ -20,13 +20,11 @@ static const Bool topbar            = False;     /* False means bottom bar */
 
 /* tagging */
 static const char *tags[] =
-	{"壱", "弐", "参", "肆", "伍", "陸", "漆", "捌", "玖"/*, "拾"*/ };
-//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+	{"壱", "弐", "参", "肆", "伍", "陸", "漆", "捌", "玖"};
 
 static const Rule rules[] = {
 /* class instance title tags mask isfloating monitor */
 { "Gimp",	NULL,	NULL,	1 << 5,	True,	-1 },
-//{ "Firefox",  NULL,	NULL,	1 << 8,	False,	-1 },
 };
 
 /* layout */
