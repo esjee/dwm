@@ -1650,12 +1650,12 @@ setup(void) {
 	cursor[CurMove] = XCreateFontCursor(dpy, XC_fleur);
 
 	/* init appearance */
-        dc.norm[ColBorder] = getcolor(normbordercolor, dc.xftnorm+ColBorder);
-        dc.norm[ColBG] = getcolor(normbgcolor, dc.xftnorm+ColBG);
-        dc.norm[ColFG] = getcolor(normfgcolor, dc.xftnorm+ColFG);
-        dc.sel[ColBorder] = getcolor(selbordercolor, dc.xftsel+ColBorder);
-        dc.sel[ColBG] = getcolor(selbgcolor, dc.xftsel+ColBG);
-        dc.sel[ColFG] = getcolor(selfgcolor, dc.xftsel+ColFG);
+	dc.norm[ColBorder] = getcolor(normbordercolor, dc.xftnorm+ColBorder);
+	dc.norm[ColBG] = getcolor(normbgcolor, dc.xftnorm+ColBG);
+	dc.norm[ColFG] = getcolor(normfgcolor, dc.xftnorm+ColFG);
+	dc.sel[ColBorder] = getcolor(selbordercolor, dc.xftsel+ColBorder);
+	dc.sel[ColBG] = getcolor(selbgcolor, dc.xftsel+ColBG);
+	dc.sel[ColFG] = getcolor(selfgcolor, dc.xftsel+ColFG);
 
 	dc.drawable = XCreatePixmap(dpy, root, DisplayWidth(dpy, screen), bh, DefaultDepth(dpy, screen));
 	dc.gc = XCreateGC(dpy, root, 0, NULL);
