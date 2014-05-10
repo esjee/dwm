@@ -135,7 +135,7 @@ static Key keys[] = {
 	/* system */
 	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
 	{ MODKEY|ShiftMask|ControlMask,	XK_F11,		spawn,		 SHCMD(REBOOT) },
-	{ MODKEY|ShiftMask|ControlMask,	XK_F10,		spawn,		 SHCMD(SLEEP) },
+	{ MODKEY|ShiftMask|ControlMask,	XK_F1,		spawn,		 SHCMD(SLEEP) },
 	{ MODKEY|ShiftMask|ControlMask,	XK_q,		quit,		{0} },	/* kill dwm */
 	{ MODKEY,			XK_b,		togglebar,	{0} },
 
