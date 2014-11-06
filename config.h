@@ -131,6 +131,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY,		XK_s,		spawn,		SHCMD(FIREFOX_GTKFIX) },
 	{ MODKEY,		XK_Print,	spawn,		SHCMD(SCROT_FULL) },
+	{ MODKEY,		XK_semicolon,	spawn,		SHCMD("/home/plague/bin/_randbg.sh") },
 
 	/* system */
 	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
