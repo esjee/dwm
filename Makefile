@@ -15,7 +15,8 @@ options:
 	@echo "CC       = ${CC}"
 
 .c.o:
-	$(CC) -c ${CFLAGS} $<
+	@echo CC $<
+	@${CC} -c ${CFLAGS} $<
 
 ${OBJ}: config.h config.mk mpdcontrol.c
 
@@ -24,7 +25,8 @@ config.h:
 	@cp config.def.h $@
 
 dwm: ${OBJ}
-	$(CC) -o $@ ${OBJ} ${LDFLAGS}
+	@echo CC -o $@
+	@${CC} -o $@ ${OBJ} ${LDFLAGS}
 
 clean:
 	@echo cleaning
