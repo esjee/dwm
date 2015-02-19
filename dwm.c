@@ -919,6 +919,25 @@ void
 focusmon(const Arg *arg) {
 	Monitor *m;
 
+	XWarpPointer(dpy, None,
+			root,
+			0, 0, 0, 0,
+			sw, sh);
+
+	//XWarpPointer(
+	//		dpy, // display
+	//		0,  // src w
+	//		selmon->mw, // dst w
+	//		0, // src x
+	//		0, // src y
+	//		0, // src_width
+	//		0, // src_height
+	//		selmon->mx, // dest_x
+	//		selmon->my // dst_y
+	//	    );
+	//XWarpPointer(dpy, None, selmon->mw, 100, 100, 100, 100, 100, 100);
+	XSync(dpy, False);
+
 	if(!mons->next)
 		return;
 	if((m = dirtomon(arg->i)) == selmon)
