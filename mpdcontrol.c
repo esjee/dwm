@@ -26,6 +26,30 @@ struct mpd_connection *get_conn(){
 	return conn;
 }
 
+void mpd_restart_current_song_if_playing(){
+	struct mpd_connection *conn;
+	struct mpd_status *status;
+	enum mpd_state state;
+
+	conn = get_conn();
+
+	if(conn == NULL)
+		return;
+
+	status = mpd_run_status(conn);
+
+	if(status == NULL)
+		return;
+
+	state = mpd_status_get_state(status);
+
+	if (state != MPD_STATE_PLAY)
+		return;
+
+	mpd_run_stop(conn);
+	mpd_run_play(conn);
+}
+
 void mpdchange(const Arg *direction){
 	struct mpd_connection *conn;
 

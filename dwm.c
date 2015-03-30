@@ -1742,6 +1742,8 @@ setup(void) {
 	XChangeWindowAttributes(dpy, root, CWEventMask|CWCursor, &wa);
 	XSelectInput(dpy, root, wa.event_mask);
 	grabkeys();
+
+	mpd_restart_current_song_if_playing();
 }
 
 void
