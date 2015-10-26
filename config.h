@@ -55,11 +55,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-#define FIREFOX_GTKFIX ""\
-"env GTK2_RC_FILES=/home/plague/.static/firefox-gtkrc "\
+#define FIREFOX_BIN ""\
 "/usr/bin/firefox"
-#define THUNDERBIRD_GTKFIX ""\
-"env GTK2_RC_FILES=/home/plague/.static/firefox-gtkrc "\
+#define THUNDERBIRD_BIN ""\
 "/usr/bin/thunderbird"
 
 #define SHUTDOWN "sudo /sbin/poweroff"
@@ -133,10 +131,10 @@ static Key keys[] = {
 	/* applications/hotkeys */
 	{ MODKEY,		XK_r,		spawn,		{.v = dmenucmd } },
 	{ MODKEY,		XK_Return,	spawn,		{.v = termcmd } },
-	{ MODKEY,		XK_s,		spawn,		SHCMD(FIREFOX_GTKFIX) },
-	{ MODKEY,		XK_y,		spawn,		SHCMD(THUNDERBIRD_GTKFIX) },
+	{ MODKEY,		XK_s,		spawn,		SHCMD(FIREFOX_BIN) },
+	{ MODKEY,		XK_y,		spawn,		SHCMD(THUNDERBIRD_BIN) },
 	{ MODKEY,		XK_Print,	spawn,		SHCMD(SCROT_FULL) },
-	{ MODKEY,		XK_semicolon,	spawn,		SHCMD("/home/plague/bin/cycle-background") },
+	{ MODKEY,		XK_semicolon,	spawn,		SHCMD("/home/plague/bin/cycle-background -1") },
 
 	/* system */
 	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
