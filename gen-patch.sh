@@ -6,7 +6,7 @@ do
 	OUT="99-esjee-${i}.patch"
 	git diff master $CBRANCH -- ${i} >"$OUT"
 done
-for i in  mpdcontrol.c
+for i in  mpdcontrol.c zoomswap.c
 do
 	OUT="99-esjee-${i}.patch"
 	git diff master $CBRANCH -- ${i} >"$OUT"

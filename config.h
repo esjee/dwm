@@ -1,4 +1,5 @@
 #include "mpdcontrol.c"
+#include "zoomswap.c"
 
 /* appearance */
 static const char font[]            = "terminusmodx 8";

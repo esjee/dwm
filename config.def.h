@@ -51,6 +51,7 @@ static const char *termcmd[]  = { "uxterm", NULL };
 
 #include "mpdcontrol.c"
 
+#include "zoomswap.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
