@@ -61,6 +61,7 @@ static const Layout layouts[] = {
 #define THUNDERBIRD_BIN ""\
 "/usr/bin/thunderbird"
 
+#define MPC_RANDOM_ALBUM "/home/plague/bin/mpc-random-album-from-playlist"
 #define SHUTDOWN "sudo /sbin/poweroff"
 #define SLEEP "sudo /usr/sbin/pm-suspend"
 #define REBOOT "sudo /sbin/reboot"
@@ -149,6 +150,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_minus,	spawn,		{.v = voldowncmd } },
 	{ MODKEY,			XK_bracketright,mpdchange,	{.i = +1} }, /* next song */
 	{ MODKEY,			XK_bracketleft,	mpdchange,	{.i = -1} }, /* prev song */
+	{ MODKEY|ShiftMask		XK_bracketright,spawn,		SHCMD(MPC_RANDOM_ALBUM) }, /* random album */
 	{ MODKEY,			XK_p,		mpdcontrol,	{.i = MPD_ARGPAUSE} }, /* pause */
 	{ MODKEY|ShiftMask,		XK_p,		mpdcontrol,	{.i = MPD_ARGSTOP} }, /* stop */
 
