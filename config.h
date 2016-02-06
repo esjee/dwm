@@ -140,7 +140,7 @@ static Key keys[] = {
 	{ MODKEY,		XK_Print,	spawn,		SHCMD(SCROT_FULL) },
 	{ MODKEY,		XK_semicolon,	spawn,		SHCMD("/home/plague/bin/cycle-background -1") },
 	{ MODKEY,		XK_e,	spawn,		SHCMD(EMACS_DAEMON) },
-	{ MODKEY,		XK_w,	spawn,		SHCMD(EMACS_NODAEMON) },
+	{ MODKEY|ShiftMask,		XK_e,	spawn,		SHCMD(EMACS_NODAEMON) },
 
 	/* system */
 	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
