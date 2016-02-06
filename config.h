@@ -150,7 +150,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_minus,	spawn,		{.v = voldowncmd } },
 	{ MODKEY,			XK_bracketright,mpdchange,	{.i = +1} }, /* next song */
 	{ MODKEY,			XK_bracketleft,	mpdchange,	{.i = -1} }, /* prev song */
-	{ MODKEY|ShiftMask		XK_bracketright,spawn,		SHCMD(MPC_RANDOM_ALBUM) }, /* random album */
+	{ MODKEY|ShiftMask,		XK_bracketright,spawn,		SHCMD(MPC_RANDOM_ALBUM) }, /* random album */
 	{ MODKEY,			XK_p,		mpdcontrol,	{.i = MPD_ARGPAUSE} }, /* pause */
 	{ MODKEY|ShiftMask,		XK_p,		mpdcontrol,	{.i = MPD_ARGSTOP} }, /* stop */
 
