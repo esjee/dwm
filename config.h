@@ -66,6 +66,8 @@ static const Layout layouts[] = {
 #define SLEEP "sudo /usr/sbin/pm-suspend"
 #define REBOOT "sudo /sbin/reboot"
 #define SCROT_FULL "/usr/bin/scrot /home/plague/screenshot.png"
+#define EMACS_DAEMON "/usr/bin/emacsclient -c"
+#define EMACS_NODAEMON "/usr/bin/emacs"
 
 static const char *dmenucmd[] = {
 	"/usr/bin/dmenu_run",
@@ -137,6 +139,8 @@ static Key keys[] = {
 	{ MODKEY,		XK_y,		spawn,		SHCMD(THUNDERBIRD_BIN) },
 	{ MODKEY,		XK_Print,	spawn,		SHCMD(SCROT_FULL) },
 	{ MODKEY,		XK_semicolon,	spawn,		SHCMD("/home/plague/bin/cycle-background -1") },
+	{ MODKEY,		XK_e,	spawn,		SHCMD(EMACS_DAEMON) },
+	{ MODKEY,		XK_w,	spawn,		SHCMD(EMACS_NODAEMON) },
 
 	/* system */
 	{ MODKEY|ShiftMask|ControlMask,	XK_F12,		spawn,		 SHCMD(SHUTDOWN) },
